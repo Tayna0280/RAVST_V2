@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
-
+use App\Models\Contact;
 //Rotas Públicas 
 
 Route::get('/', function () {
@@ -44,8 +44,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Rotas padrões do Breeze
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $contacts = Contact::all(); // busca todos os contatos no banco
+        return view('dashboard', compact('contacts'));
     })->middleware(['verified'])->name('dashboard');
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
