@@ -36,8 +36,8 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="https://cdn.pixabay.com/photo/2018/01/31/09/18/web-3120321_1280.png" 
-                 alt="Equipe RAVST" class="img-fluid rounded shadow">
+            <img src="{{ asset('images/logo.jpeg') }}"  
+                 alt="" class="img-fluid rounded shadow" width="200">
         </div>
     </div>
 
